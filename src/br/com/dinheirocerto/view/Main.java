@@ -1,4 +1,4 @@
-package br.com.dinheirocerto.model;
+package br.com.dinheirocerto.view;
 
 import br.com.dinheirocerto.model.Credito;
 import br.com.dinheirocerto.model.Entrada;
