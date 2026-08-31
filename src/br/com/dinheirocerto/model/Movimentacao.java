@@ -26,20 +26,24 @@ public class Movimentacao {
         this.valor = valor;
     }
 
+    public void exibirMovimentacao() {
+        System.out.println("Movimentacao - ID " + id + ": " + tipo + " de R$ " + valor + " - " + descricao);
+    }
 
-    public Usuario obterUsuario() {
+
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void definirUsuario(Usuario usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
-    public Entrada obterEntrada() {
+    public Entrada getEntrada() {
         return entrada;
     }
 
-    public void definirEntrada(Entrada entrada) {
+    public void setEntrada(Entrada entrada) {
         this.entrada = entrada;
         if (entrada != null) {
             this.tipo = "Entrada";
@@ -50,14 +54,14 @@ public class Movimentacao {
         }
     }
 
-    public Saida obterSaida() {
+    public Saida getSaida() {
         return saida;
     }
 
-    public void definirSaida(Saida saida) {
+    public void setSaida(Saida saida) {
         this.saida = saida;
         if (saida != null) {
-            this.tipo = "Saída";
+            this.tipo = "Saida";
             this.valor = saida.getValor();
             this.descricao = saida.getDescricao();
             this.pessoaEntidade = saida.getFornecedorOuDestino();
@@ -65,63 +69,60 @@ public class Movimentacao {
         }
     }
 
-    public Credito obterCredito() {
+    public Credito getCredito() {
         return credito;
     }
 
-    public void definirCredito(Credito credito) {
+    public void setCredito(Credito credito) {
         this.credito = credito;
     }
 
-    public Integer obterId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void definirId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String obterData() {
+    public String getData() {
         return data;
     }
 
-    public void definirData(String data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public String obterTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void definirTipo(String tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    public String obterPessoaEntidade() {
+    public String getPessoaEntidade() {
         return pessoaEntidade;
     }
 
-    public void definirPessoaEntidade(String pessoaEntidade) {
+    public void setPessoaEntidade(String pessoaEntidade) {
         this.pessoaEntidade = pessoaEntidade;
     }
 
-    public String obterDescricao() {
+    public String getDescricao() {
         return descricao;
     }
 
-    public void definirDescricao(String descricao) {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    public Double obterValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void definirValor(Double valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
-    }
-
-    public void exibirMovimentacao() {
-        System.out.println("Movimentação ID " + id + ": " + tipo + " de R$ " + valor + " - " + descricao);
     }
 }

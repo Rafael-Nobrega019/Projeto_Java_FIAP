@@ -19,6 +19,14 @@ public class Entrada {
         this.valor = valor;
     }
 
+    public void adicionarEntrada() {
+        System.out.println("Executando método: Entrada.adicionarEntrada()");
+    }
+
+    public void exibirEntrada() {
+        System.out.println("Entrada - ID " + idEntrada + ": R$ " + valor);
+    }
+
     public Integer getIdEntrada() {
         return idEntrada;
     }
@@ -57,13 +65,5 @@ public class Entrada {
 
     public void setValor(Double valor) {
         this.valor = valor;
-    }
-
-    public void adicionarEntrada() {
-        System.out.println("Executando o método adicionarEntrada");
-    }
-
-    public void exibirEntrada() {
-        System.out.println("Executando o método exibirEntrada");
     }
 }

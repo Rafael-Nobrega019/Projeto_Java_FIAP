@@ -35,85 +35,89 @@ public class Credito {
         }
     }
 
-    public Movimentacao obterMovimentacao() {
+    public void exibirResumoCredito() {
+        System.out.println("Crédito - ID " + id + ": R$ " + valorSolicitado + " em " + numeroParcelas + "x");
+    }
+
+    public Movimentacao getMovimentacao() {
         return movimentacao;
     }
 
-    public void definirMovimentacao(Movimentacao movimentacao) {
+    public void setMovimentacao(Movimentacao movimentacao) {
         this.movimentacao = movimentacao;
     }
 
-    public Integer obterId() {
+    public Integer getId() {
         return id;
     }
 
-    public void definirId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Double obterValorSolicitado() {
+    public Double getValorSolicitado() {
         return valorSolicitado;
     }
 
-    public void definirValorSolicitado(Double valorSolicitado) {
+    public void setValorSolicitado(Double valorSolicitado) {
         this.valorSolicitado = valorSolicitado;
     }
 
-    public Integer obterNumeroParcelas() {
+    public Integer getNumeroParcelas() {
         return numeroParcelas;
     }
 
-    public void definirNumeroParcelas(Integer numeroParcelas) {
+    public void setNumeroParcelas(Integer numeroParcelas) {
         this.numeroParcelas = numeroParcelas;
         calcularSimulacao();
     }
 
-    public Double obterTaxaJurosMensal() {
+    public Double getTaxaJurosMensal() {
         return taxaJurosMensal;
     }
 
-    public void definirTaxaJurosMensal(Double taxaJurosMensal) {
+    public void setTaxaJurosMensal(Double taxaJurosMensal) {
         this.taxaJurosMensal = taxaJurosMensal;
     }
 
-    public Double obterValorParcela() {
+    public Double getValorParcela() {
         return valorParcela;
     }
 
-    public void definirValorParcela(Double valorParcela) {
+    public void setValorParcela(Double valorParcela) {
         this.valorParcela = valorParcela;
         calcularSimulacao();
     }
 
-    public Double obterValorTotalPagar() {
+    public Double getValorTotalPagar() {
         return valorTotalPagar;
     }
 
-    public String obterStatus() {
+    public void setValorTotalPagar(Double valorTotalPagar) {
+        this.valorTotalPagar = valorTotalPagar;
+    }
+
+    public String getStatus() {
         return status;
     }
 
-    public void definirStatus(String status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public String obterDataSolicitacao() {
+    public String getDataSolicitacao() {
         return dataSolicitacao;
     }
 
-    public void definirDataSolicitacao(String dataSolicitacao) {
+    public void setDataSolicitacao(String dataSolicitacao) {
         this.dataSolicitacao = dataSolicitacao;
     }
 
-    public String obterDescricao() {
+    public String getDescricao() {
         return descricao;
     }
 
-    public void definirDescricao(String descricao) {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public void exibirResumoCredito() {
-        System.out.println("Crédito ID " + id + ": R$ " + valorSolicitado + " em " + numeroParcelas + "x");
     }
 }

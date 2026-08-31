@@ -9,12 +9,9 @@ public class Usuario {
     private String telefone;
     private Double saldo;
 
-    // Construtor padrão
     public Usuario() {
-
     }
 
-    // Construtor com parâmetros
     public Usuario(Integer idUsuario, String nome, String cpf, String email, String telefone, Double saldo) {
         this.idUsuario = idUsuario;
         this.nome = nome;
@@ -24,25 +21,22 @@ public class Usuario {
         this.saldo = saldo;
     }
 
-    // Metodo para cadastrar o usuário
     public void cadastrarUsuario() {
-        System.out.println("Cadastrando usuário no sistema Dinheiro Certo.");
+        System.out.println("Executando método: Usuario.cadastrarUsuario()");
     }
 
-    // Metodo para atualizar os dados do usuário
     public void atualizarDados() {
-        System.out.println("Atualizando os dados do usuário.");
+        System.out.println("Exucutando método: Usuario.atualizarDados()");
     }
 
-    // Metodo para consultar o saldo
     public void consultarSaldo() {
-        System.out.println("Consultando saldo do usuário: R$ " + saldo);
+        System.out.println("Executando método: Usuario.consultarSaldo() - R$ " + saldo);
     }
 
-    // Metodo para exibir os dados do usuário
     public void exibirDados() {
-        System.out.println("Exibindo dados do usuário: " + nome);
+        System.out.println("Executando método: Usuario.exibirDados() - " + nome);
     }
+
 
     public Integer getIdUsuario() {
         return idUsuario;

@@ -1,6 +1,7 @@
 package br.com.dinheirocerto.model;
 
 public class Saida {
+
     private Integer idSaida;
     private String data;
     private String fornecedorOuDestino;
@@ -8,8 +9,8 @@ public class Saida {
     private Double valor;
     private String formaPagamento;
 
-
-    public Saida(){}
+    public Saida() {
+    }
 
     public Saida(Integer idSaida, String data, String fornecedorOuDestino, String descricao, Double valor, String formaPagamento) {
         this.idSaida = idSaida;
@@ -33,21 +34,52 @@ public class Saida {
         System.out.println("Executando método: Saida.excluirSaida()");
     }
 
-    public Integer getIdSaida() { return idSaida; }
-    public void setIdSaida(Integer idSaida) { this.idSaida = idSaida; }
 
-    public String getData() { return data; }
-    public void setData(String data) { this.data = data; }
+    public Integer getIdSaida() {
+        return idSaida;
+    }
 
-    public String getFornecedorOuDestino() { return fornecedorOuDestino; }
-    public void setFornecedorOuDestino(String fornecedorOuDestino) { this.fornecedorOuDestino = fornecedorOuDestino; }
+    public void setIdSaida(Integer idSaida) {
+        this.idSaida = idSaida;
+    }
 
-    public String getDescricao() { return descricao; }
-    public void setDescricao(String descricao) { this.descricao = descricao; }
+    public String getData() {
+        return data;
+    }
 
-    public Double getValor() { return valor; }
-    public void setValor(Double valor) { this.valor = valor; }
+    public void setData(String data) {
+        this.data = data;
+    }
 
-    public String getFormaPagamento() { return formaPagamento; }
-    public void setFormaPagamento(String formaPagamento) { this.formaPagamento = formaPagamento; }
+    public String getFornecedorOuDestino() {
+        return fornecedorOuDestino;
+    }
+
+    public void setFornecedorOuDestino(String fornecedorOuDestino) {
+        this.fornecedorOuDestino = fornecedorOuDestino;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
+
+    public String getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
 }

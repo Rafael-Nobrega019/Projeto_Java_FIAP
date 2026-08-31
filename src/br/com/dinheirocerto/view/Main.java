@@ -19,9 +19,9 @@ public class Main {
         entrada.adicionarEntrada();
 
         Movimentacao movEntrada = new Movimentacao();
-        movEntrada.definirId(1);
-        movEntrada.definirUsuario(usuario);
-        movEntrada.definirEntrada(entrada);
+        movEntrada.setId(1);
+        movEntrada.setUsuario(usuario);
+        movEntrada.setEntrada(entrada);
         movEntrada.exibirMovimentacao();
         System.out.println();
 
@@ -29,9 +29,9 @@ public class Main {
         saida.cadastrarSaida();
 
         Movimentacao movSaida = new Movimentacao();
-        movSaida.definirId(2);
-        movSaida.definirUsuario(usuario);
-        movSaida.definirSaida(saida);
+        movSaida.setId(2);
+        movSaida.setUsuario(usuario);
+        movSaida.setSaida(saida);
         movSaida.exibirMovimentacao();
         System.out.println();
 
@@ -39,11 +39,11 @@ public class Main {
         credito.exibirResumoCredito();
 
         Movimentacao movCredito = new Movimentacao(3, "25/10/2025", "Entrada", "Banco Dinheiro Certo", "Liberação de Crédito", 30000.0);
-        movCredito.definirUsuario(usuario);
-        movCredito.definirCredito(credito);
-        credito.definirMovimentacao(movCredito);
+        movCredito.setUsuario(usuario);
+        movCredito.setCredito(credito);
+        credito.setMovimentacao(movCredito);
 
-        System.out.println("Movimentação de Crédito ID: " + credito.obterMovimentacao().obterId() +
-                " | Descrição: " + credito.obterMovimentacao().obterDescricao());
+        System.out.println("Movimentação de Crédito ID: " + credito.getMovimentacao().getId() +
+                " | Descrição: " + credito.getMovimentacao().getDescricao());
     }
 }
