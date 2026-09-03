@@ -13,7 +13,7 @@ public class Main {
 
         // Construtores
         Usuario usuario = new Usuario(107097, "Pedro Fernando Gomes Leal", "142.252.678-35",
-                "pedrofernando012@fiap.com.br", "+55 11 9 5252-7428", 2000.0);
+                "pedrofernando012@fiap.com.br", "+55 11 9 5252-7428", 2000.0, "20/03/1990");
 
         Entrada salario = new Entrada(360242, "05/09/2026", "Alfa Serviços Contábeis LTDA",
                 "Pagamento de Salário", 10000.0);

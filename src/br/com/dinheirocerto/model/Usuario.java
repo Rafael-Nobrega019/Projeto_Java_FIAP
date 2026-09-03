@@ -8,17 +8,19 @@ public class Usuario {
     private String email;
     private String telefone;
     private Double saldo;
+    private String dataNascimento;
 
     public Usuario() {
     }
 
-    public Usuario(Integer idUsuario, String nome, String cpf, String email, String telefone, Double saldo) {
+    public Usuario(Integer idUsuario, String nome, String cpf, String email, String telefone, Double saldo, String dataNascimento) {
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
         this.saldo = saldo;
+        this.dataNascimento = dataNascimento;
     }
 
     public void processarOperacao(Operacao operacao) {
@@ -46,6 +48,7 @@ public class Usuario {
         System.out.println("DADOS DO USUÁRIO");
         System.out.println("ID: " + idUsuario);
         System.out.println("Nome: " + nome);
+        System.out.println("Data de Nascimento: " + dataNascimento);
         System.out.println("CPF: " + cpf);
         System.out.println("Email: " + email);
         System.out.println("Telefone: " + telefone);
