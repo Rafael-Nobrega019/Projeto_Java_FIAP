@@ -3,80 +3,34 @@ package br.com.dinheirocerto.model;
 public class Movimentacao {
 
     private Integer id;
-    private String data;
-    private String tipo;
-    private String pessoaEntidade;
-    private String descricao;
-    private Double valor;
-
     private Usuario usuario;
-    private Entrada entrada;
-    private Saida saida;
+
+    private Operacao operacao;
+
     private Credito credito;
 
     public Movimentacao() {
     }
 
-    public Movimentacao(Integer id, String data, String tipo, String pessoaEntidade, String descricao, Double valor) {
+    public Movimentacao(Integer id, Usuario usuario, Operacao operacao) {
         this.id = id;
-        this.data = data;
-        this.tipo = tipo;
-        this.pessoaEntidade = pessoaEntidade;
-        this.descricao = descricao;
-        this.valor = valor;
-    }
-
-    public void exibirMovimentacao() {
-        System.out.println("Movimentacao - ID " + id + ": " + tipo + " de R$ " + valor + " - " + descricao);
-    }
-
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+        this.operacao = operacao;
     }
 
-    public Entrada getEntrada() {
-        return entrada;
-    }
-
-    public void setEntrada(Entrada entrada) {
-        this.entrada = entrada;
-        if (entrada != null) {
-            this.tipo = "Entrada";
-            this.valor = entrada.getValor();
-            this.descricao = entrada.getDescricao();
-            this.pessoaEntidade = entrada.getPessoaEntidade();
-            this.data = entrada.getData();
+    public void gerarRecibo() {
+        if (operacao != null) {
+            System.out.println("-----------------------------");
+            System.out.println("RECIBO DE MOVIMENTAÇÃO");
+            System.out.println("ID Movimentação: " + id);
+            System.out.println("Data: " + operacao.getData());
+            System.out.println("Descrição: " + operacao.getDescricao());
+            System.out.println("Valor: R$ " + operacao.getValor());
+            System.out.println("-----------------------------");
+        } else {
+            System.out.println("Movimentação sem operação registrada.");
         }
     }
-
-    public Saida getSaida() {
-        return saida;
-    }
-
-    public void setSaida(Saida saida) {
-        this.saida = saida;
-        if (saida != null) {
-            this.tipo = "Saida";
-            this.valor = saida.getValor();
-            this.descricao = saida.getDescricao();
-            this.pessoaEntidade = saida.getFornecedorOuDestino();
-            this.data = saida.getData();
-        }
-    }
-
-    public Credito getCredito() {
-        return credito;
-    }
-
-    public void setCredito(Credito credito) {
-        this.credito = credito;
-    }
-
 
     public Integer getId() {
         return id;
@@ -86,43 +40,27 @@ public class Movimentacao {
         this.id = id;
     }
 
-    public String getData() {
-        return data;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public String getTipo() {
-        return tipo;
+    public Operacao getOperacao() {
+        return operacao;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setOperacao(Operacao operacao) {
+        this.operacao = operacao;
     }
 
-    public String getPessoaEntidade() {
-        return pessoaEntidade;
+    public Credito getCredito() {
+        return credito;
     }
 
-    public void setPessoaEntidade(String pessoaEntidade) {
-        this.pessoaEntidade = pessoaEntidade;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
+    public void setCredito(Credito credito) {
+        this.credito = credito;
     }
 }

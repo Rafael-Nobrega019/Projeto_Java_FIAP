@@ -1,32 +1,32 @@
 package br.com.dinheirocerto.model;
 
-public class Credito {
+public class Credito extends Operacao {
 
     private Integer id;
-    private Double valorSolicitado;
     private Integer numeroParcelas;
     private Double taxaJurosMensal;
     private Double valorParcela;
     private Double valorTotalPagar;
     private String status;
-    private String dataSolicitacao;
-    private String descricao;
 
     private Movimentacao movimentacao;
 
     public Credito() {
     }
 
-    public Credito(Integer id, Double valorSolicitado, Integer numeroParcelas, Double taxaJurosMensal, Double valorParcela, Double valorTotalPagar, String status, String dataSolicitacao, String descricao) {
+    public Credito(Integer id, Double valor, Integer numeroParcelas, Double taxaJurosMensal, Double valorParcela, Double valorTotalPagar, String status, String data, String descricao) {
+        super(data, descricao, valor);
         this.id = id;
-        this.valorSolicitado = valorSolicitado;
         this.numeroParcelas = numeroParcelas;
         this.taxaJurosMensal = taxaJurosMensal;
         this.valorParcela = valorParcela;
         this.valorTotalPagar = valorTotalPagar;
         this.status = status;
-        this.dataSolicitacao = dataSolicitacao;
-        this.descricao = descricao;
+    }
+
+    @Override
+    public Double calcularImpactoSaldo() {
+        return this.getValor();
     }
 
     public void calcularSimulacao() {
@@ -36,7 +36,7 @@ public class Credito {
     }
 
     public void exibirResumoCredito() {
-        System.out.println("Crédito - ID " + id + ": R$ " + valorSolicitado + " em " + numeroParcelas + "x");
+        System.out.println("Crédito - ID " + id + ": R$ " + getValor() + " em " + numeroParcelas + "x");
     }
 
     public Movimentacao getMovimentacao() {
@@ -53,14 +53,6 @@ public class Credito {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Double getValorSolicitado() {
-        return valorSolicitado;
-    }
-
-    public void setValorSolicitado(Double valorSolicitado) {
-        this.valorSolicitado = valorSolicitado;
     }
 
     public Integer getNumeroParcelas() {
@@ -93,6 +85,18 @@ public class Credito {
         return valorTotalPagar;
     }
 
+    public void exibirDetalhes() {
+        System.out.println("=== CRÉDITO ===");
+        System.out.println("ID: " + id);
+        System.out.println("Descrição: " + getDescricao());
+        System.out.println("Valor liberado: R$ " + getValor());
+        System.out.println("Parcelas: " + numeroParcelas + "x de R$ " + valorParcela);
+        System.out.println("Taxa de juros mensal: " + taxaJurosMensal + "%");
+        System.out.println("Total a pagar: R$ " + valorTotalPagar);
+        System.out.println("Status: " + status);
+        System.out.println("Data: " + getData());
+    }
+
     public void setValorTotalPagar(Double valorTotalPagar) {
         this.valorTotalPagar = valorTotalPagar;
     }
@@ -103,21 +107,5 @@ public class Credito {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getDataSolicitacao() {
-        return dataSolicitacao;
-    }
-
-    public void setDataSolicitacao(String dataSolicitacao) {
-        this.dataSolicitacao = dataSolicitacao;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 }

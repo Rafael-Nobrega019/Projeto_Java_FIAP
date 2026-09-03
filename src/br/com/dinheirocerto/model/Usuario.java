@@ -21,68 +21,53 @@ public class Usuario {
         this.saldo = saldo;
     }
 
+    public void processarOperacao(Operacao operacao) {
+        if (operacao != null && operacao.getValor() != null) {
+            this.saldo += operacao.calcularImpactoSaldo();
+        }
+    }
+
     public void cadastrarUsuario() {
-        System.out.println("Executando método: Usuario.cadastrarUsuario()");
+        System.out.println("Usuário cadastrado com sucesso!");
+        System.out.println("ID: " + idUsuario + " | Nome: " + nome + " | CPF: " + cpf);
     }
 
     public void atualizarDados() {
-        System.out.println("Exucutando método: Usuario.atualizarDados()");
+        System.out.println("Dados do usuário atualizados!");
+        System.out.println("Email: " + email + " | Telefone: " + telefone);
     }
 
     public void consultarSaldo() {
-        System.out.println("Executando método: Usuario.consultarSaldo() - R$ " + saldo);
+        System.out.println("Saldo atual de " + nome + ": R$ " + saldo);
     }
 
     public void exibirDados() {
-        System.out.println("Executando método: Usuario.exibirDados() - " + nome);
+        System.out.println("========================");
+        System.out.println("DADOS DO USUÁRIO");
+        System.out.println("ID: " + idUsuario);
+        System.out.println("Nome: " + nome);
+        System.out.println("CPF: " + cpf);
+        System.out.println("Email: " + email);
+        System.out.println("Telefone: " + telefone);
+        System.out.println("Saldo: R$ " + saldo);
+        System.out.println("========================");
     }
 
+    public Integer getIdUsuario() { return idUsuario; }
+    public void setIdUsuario(Integer idUsuario) { this.idUsuario = idUsuario; }
 
-    public Integer getIdUsuario() {
-        return idUsuario;
-    }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+    public String getCpf() { return cpf; }
+    public void setCpf(String cpf) { this.cpf = cpf; }
 
-    public String getNome() {
-        return nome;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public String getTelefone() { return telefone; }
+    public void setTelefone(String telefone) { this.telefone = telefone; }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public Double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(Double saldo) {
-        this.saldo = saldo;
-    }
+    public Double getSaldo() { return saldo; }
+    public void setSaldo(Double saldo) { this.saldo = saldo; }
 }

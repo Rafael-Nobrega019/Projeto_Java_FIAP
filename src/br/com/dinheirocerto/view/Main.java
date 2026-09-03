@@ -3,6 +3,7 @@ package br.com.dinheirocerto.view;
 import br.com.dinheirocerto.model.Credito;
 import br.com.dinheirocerto.model.Entrada;
 import br.com.dinheirocerto.model.Movimentacao;
+import br.com.dinheirocerto.model.Operacao;
 import br.com.dinheirocerto.model.Saida;
 import br.com.dinheirocerto.model.Usuario;
 
@@ -10,40 +11,54 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Usuario usuario = new Usuario(1, "Bruno Santos", "123.456.789-00", "bruno@exemplo.com", "+55 01 2 3456-7890", 53652.97);
+        // Construtores
+        Usuario usuario = new Usuario(107097, "Pedro Fernando Gomes Leal", "142.252.678-35",
+                "pedrofernando012@fiap.com.br", "+55 11 9 5252-7428", 2000.0);
+
+        Entrada salario = new Entrada(360242, "05/09/2026", "Alfa Serviços Contábeis LTDA",
+                "Pagamento de Salário", 10000.0);
+
+        Saida contaluz = new Saida(203457, "05/09/2026", "Enel",
+                "Conta de Energia", 250.0, "Pix");
+
+        // Classe Crédito sendo usada
+        Credito emprestimo = new Credito(35125, 30000.0, 9, 1.03,
+                4233.33, 38100.0, "Aprovado", "10/09/2026", "Empréstimo Pessoal");
+
+        // Exibindo dados completos do usuário
         usuario.exibirDados();
+
+        // Polimorfismo
+        System.out.println("\nPROCESSANDO OPERAÇÕES NO SALDO");
+
+        // Entrada - exemplo salário
+        usuario.processarOperacao(salario);
+        salario.exibirDetalhes();
         usuario.consultarSaldo();
-        System.out.println();
 
-        Entrada entrada = new Entrada(101, "22/04/2026", "Bruno Almeida de Sousa", "Venda de produto", 563.02);
-        entrada.adicionarEntrada();
+        // Saída - exemplo conta de luz
+        usuario.processarOperacao(contaluz);
+        contaluz.exibirDetalhes();
+        usuario.consultarSaldo();
 
-        Movimentacao movEntrada = new Movimentacao();
-        movEntrada.setId(1);
-        movEntrada.setUsuario(usuario);
-        movEntrada.setEntrada(entrada);
-        movEntrada.exibirMovimentacao();
-        System.out.println();
+        // Crédito - exemplo de empréstimo
+        usuario.processarOperacao(emprestimo);
+        emprestimo.exibirDetalhes();
+        usuario.consultarSaldo();
 
-        Saida saida = new Saida(201, "17/04/2026", "Sousa Parafusos Ltda.", "Compra de parafusos", 166.33, "Pix");
-        saida.cadastrarSaida();
+        // Exibindo resumo do crédito
+        emprestimo.exibirResumoCredito();
 
-        Movimentacao movSaida = new Movimentacao();
-        movSaida.setId(2);
-        movSaida.setUsuario(usuario);
-        movSaida.setSaida(saida);
-        movSaida.exibirMovimentacao();
-        System.out.println();
+        // Chamando a classe movimentação através dos recibos
+        System.out.println("\nGERANDO RECIBOS");
 
-        Credito credito = new Credito(301, 30000.0, 36, 2.09, 1194.06, 42986.32, "Sem pendências", "25/10/2025", "Empréstimo para Reforma");
-        credito.exibirResumoCredito();
+        Movimentacao mov1 = new Movimentacao(1, usuario, salario);
+        mov1.gerarRecibo();
 
-        Movimentacao movCredito = new Movimentacao(3, "25/10/2025", "Entrada", "Banco Dinheiro Certo", "Liberação de Crédito", 30000.0);
-        movCredito.setUsuario(usuario);
-        movCredito.setCredito(credito);
-        credito.setMovimentacao(movCredito);
+        Movimentacao mov2 = new Movimentacao(2, usuario, contaluz);
+        mov2.gerarRecibo();
 
-        System.out.println("Movimentação de Crédito ID: " + credito.getMovimentacao().getId() +
-                " | Descrição: " + credito.getMovimentacao().getDescricao());
+        Movimentacao mov3 = new Movimentacao(3, usuario, emprestimo);
+        mov3.gerarRecibo();
     }
 }

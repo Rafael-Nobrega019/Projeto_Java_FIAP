@@ -1,69 +1,40 @@
 package br.com.dinheirocerto.model;
 
-public class Entrada {
+public class Entrada extends Operacao {
 
     private Integer idEntrada;
-    private String data;
     private String pessoaEntidade;
-    private String descricao;
-    private Double valor;
 
     public Entrada() {
     }
 
     public Entrada(Integer idEntrada, String data, String pessoaEntidade, String descricao, Double valor) {
+        super(data, descricao, valor);
         this.idEntrada = idEntrada;
-        this.data = data;
         this.pessoaEntidade = pessoaEntidade;
-        this.descricao = descricao;
-        this.valor = valor;
     }
 
-    public void adicionarEntrada() {
-        System.out.println("Executando método: Entrada.adicionarEntrada()");
-    }
 
-    public void exibirEntrada() {
-        System.out.println("Entrada - ID " + idEntrada + ": R$ " + valor);
+    @Override
+    public Double calcularImpactoSaldo() {
+        return this.getValor();
     }
 
     public Integer getIdEntrada() {
         return idEntrada;
     }
-
     public void setIdEntrada(Integer idEntrada) {
         this.idEntrada = idEntrada;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
     }
 
     public String getPessoaEntidade() {
         return pessoaEntidade;
     }
-
     public void setPessoaEntidade(String pessoaEntidade) {
         this.pessoaEntidade = pessoaEntidade;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
+    public void exibirDetalhes() {
+        System.out.println("\nEntrada registrada: " + getDescricao() + "  \nValor: R$ " + getValor());
     }
 }
