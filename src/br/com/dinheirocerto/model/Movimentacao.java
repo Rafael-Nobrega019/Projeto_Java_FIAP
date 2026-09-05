@@ -2,7 +2,7 @@ package br.com.dinheirocerto.model;
 
 public class Movimentacao {
 
-    private Integer id;
+    private Integer idMovimentacao;
     private Usuario usuario;
 
     private Operacao operacao;
@@ -12,8 +12,8 @@ public class Movimentacao {
     public Movimentacao() {
     }
 
-    public Movimentacao(Integer id, Usuario usuario, Operacao operacao) {
-        this.id = id;
+    public Movimentacao(Integer idMovimentacao, Usuario usuario, Operacao operacao) {
+        this.idMovimentacao = idMovimentacao;
         this.usuario = usuario;
         this.operacao = operacao;
     }
@@ -22,22 +22,23 @@ public class Movimentacao {
         if (operacao != null) {
             System.out.println("-----------------------------");
             System.out.println("RECIBO DE MOVIMENTAÇÃO");
-            System.out.println("ID Movimentação: " + id);
+            System.out.println("ID Movimentação: " + idMovimentacao);
             System.out.println("Data: " + operacao.getData());
             System.out.println("Descrição: " + operacao.getDescricao());
             System.out.println("Valor: R$ " + operacao.getValor());
+            System.out.println("Tipo: " + operacao.getTipoOperacao());
             System.out.println("-----------------------------");
         } else {
             System.out.println("Movimentação sem operação registrada.");
         }
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdMovimentacao() {
+        return idMovimentacao;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdMovimentacao(Integer idMovimentacao) {
+        this.idMovimentacao = idMovimentacao;
     }
 
     public Usuario getUsuario() {

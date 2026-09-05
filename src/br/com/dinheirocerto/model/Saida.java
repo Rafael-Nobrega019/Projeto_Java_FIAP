@@ -17,6 +17,11 @@ public class Saida extends Operacao {
     }
 
     @Override
+    public String getTipoOperacao() {
+        return "Saída";
+    }
+
+    @Override
     public Double calcularImpactoSaldo() {
         return -this.getValor();
     }

@@ -5,6 +5,7 @@ public abstract class Operacao {
     private String data;
     private String descricao;
     private Double valor;
+    public abstract String getTipoOperacao();
 
     public Operacao() {
     }

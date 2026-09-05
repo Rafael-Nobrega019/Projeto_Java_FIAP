@@ -14,6 +14,10 @@ public class Entrada extends Operacao {
         this.pessoaEntidade = pessoaEntidade;
     }
 
+    @Override
+    public String getTipoOperacao() {
+        return "Entrada";
+    }
 
     @Override
     public Double calcularImpactoSaldo() {

@@ -3,7 +3,6 @@ package br.com.dinheirocerto.view;
 import br.com.dinheirocerto.model.Credito;
 import br.com.dinheirocerto.model.Entrada;
 import br.com.dinheirocerto.model.Movimentacao;
-import br.com.dinheirocerto.model.Operacao;
 import br.com.dinheirocerto.model.Saida;
 import br.com.dinheirocerto.model.Usuario;
 
@@ -18,7 +17,7 @@ public class Main {
         Entrada salario = new Entrada(360242, "05/09/2026", "Alfa Serviços Contábeis LTDA",
                 "Pagamento de Salário", 10000.0);
 
-        Saida contaluz = new Saida(203457, "05/09/2026", "Enel",
+        Saida contaluz = new Saida(203457, "07/09/2026", "Enel",
                 "Conta de Energia", 250.0, "Pix");
 
         // Classe Crédito sendo usada
@@ -52,13 +51,13 @@ public class Main {
         // Chamando a classe movimentação através dos recibos
         System.out.println("\nGERANDO RECIBOS");
 
-        Movimentacao mov1 = new Movimentacao(1, usuario, salario);
+        Movimentacao mov1 = new Movimentacao(1568655, usuario, salario);
         mov1.gerarRecibo();
 
-        Movimentacao mov2 = new Movimentacao(2, usuario, contaluz);
+        Movimentacao mov2 = new Movimentacao(1678542, usuario, contaluz);
         mov2.gerarRecibo();
 
-        Movimentacao mov3 = new Movimentacao(3, usuario, emprestimo);
+        Movimentacao mov3 = new Movimentacao(1890653, usuario, emprestimo);
         mov3.gerarRecibo();
     }
 }

@@ -2,7 +2,7 @@ package br.com.dinheirocerto.model;
 
 public class Credito extends Operacao {
 
-    private Integer id;
+    private Integer idCredito;
     private Integer numeroParcelas;
     private Double taxaJurosMensal;
     private Double valorParcela;
@@ -14,14 +14,19 @@ public class Credito extends Operacao {
     public Credito() {
     }
 
-    public Credito(Integer id, Double valor, Integer numeroParcelas, Double taxaJurosMensal, Double valorParcela, Double valorTotalPagar, String status, String data, String descricao) {
+    public Credito(Integer idCredito, Double valor, Integer numeroParcelas, Double taxaJurosMensal, Double valorParcela, Double valorTotalPagar, String status, String data, String descricao) {
         super(data, descricao, valor);
-        this.id = id;
+        this.idCredito = idCredito;
         this.numeroParcelas = numeroParcelas;
         this.taxaJurosMensal = taxaJurosMensal;
         this.valorParcela = valorParcela;
         this.valorTotalPagar = valorTotalPagar;
         this.status = status;
+    }
+
+    @Override
+    public String getTipoOperacao() {
+        return "Crédito Liberado";
     }
 
     @Override
@@ -36,7 +41,7 @@ public class Credito extends Operacao {
     }
 
     public void exibirResumoCredito() {
-        System.out.println("Crédito - ID " + id + ": R$ " + getValor() + " em " + numeroParcelas + "x");
+        System.out.println("Crédito - ID " + idCredito + ": R$ " + getValor() + " em " + numeroParcelas + "x");
     }
 
     public Movimentacao getMovimentacao() {
@@ -48,11 +53,11 @@ public class Credito extends Operacao {
     }
 
     public Integer getId() {
-        return id;
+        return idCredito;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idCredito) {
+        this.idCredito = idCredito;
     }
 
     public Integer getNumeroParcelas() {
@@ -87,7 +92,7 @@ public class Credito extends Operacao {
 
     public void exibirDetalhes() {
         System.out.println("=== CRÉDITO ===");
-        System.out.println("ID: " + id);
+        System.out.println("ID: " + idCredito);
         System.out.println("Descrição: " + getDescricao());
         System.out.println("Valor liberado: R$ " + getValor());
         System.out.println("Parcelas: " + numeroParcelas + "x de R$ " + valorParcela);
